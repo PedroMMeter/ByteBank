@@ -10,6 +10,7 @@ class CreateTransference extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.all(15),
         child: Column(
+
           children: [
             TextFormField(
               decoration: InputDecoration(
@@ -21,12 +22,15 @@ class CreateTransference extends StatelessWidget {
                 FilteringTextInputFormatter.digitsOnly
               ],
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             TextFormField(
               decoration: InputDecoration(
-                icon: Icon(Icons.monetization_on, size: 26,),
+                icon: Icon(Icons.monetization_on, size: 24,),
                 labelText: 'Valor',
                 hintText: '0.00',
               ),
@@ -35,12 +39,15 @@ class CreateTransference extends StatelessWidget {
                 FilteringTextInputFormatter.digitsOnly
               ],
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
               ),
+            ),
+            SizedBox(
+              height: 15,
             ),
             Center(
               child: Container(
-                height: 45,
+                height: 40,
                 margin: EdgeInsets.only(top: 10.0),
                 child: ElevatedButton(
                   style: ButtonStyle(
@@ -50,7 +57,7 @@ class CreateTransference extends StatelessWidget {
                   onPressed: () {},
                   child: const Text(
                       "Confirmar",
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               ),
