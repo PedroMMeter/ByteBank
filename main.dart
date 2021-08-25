@@ -1,7 +1,6 @@
 import 'package:bytebank/newTransference.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,39 +29,23 @@ class TransferenceList extends StatelessWidget {
       appBar: AppBar(
         title: Text('Transferências'),
       ),
-      body: ListView.builder(
-          itemCount: 3,
-          itemBuilder: (context, position) {
-            return Card(
-              child: Row(children: <Widget>[
-                Container(
-                  height: 35,
-                  margin: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Icon(
-                    FontAwesomeIcons.dollarSign,
-                    color: Colors.white,
-
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '100.0',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
-                    Text(
-                      '1000',
-                      style: TextStyle(color: Colors.black45, fontSize: 14.0),
-                    )
-                  ],
-                )
-              ]),
-            );
-          }),
+      body: Column(
+        children: [
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.monetization_on),
+              title: Text('100.0'),
+              subtitle: Text('1000'),
+            ),
+          ),Card(
+            child: ListTile(
+              leading: Icon(Icons.monetization_on),
+              title: Text('200.0'),
+              subtitle: Text('1000'),
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           Navigator.push(context, new MaterialPageRoute(builder: (context) => CreateTransference()));
