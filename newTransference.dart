@@ -43,7 +43,7 @@ class CreateTransference extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 13,
             ),
             Center(
               child: Container(
