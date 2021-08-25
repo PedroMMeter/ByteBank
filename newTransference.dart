@@ -20,10 +20,13 @@ class CreateTransference extends StatelessWidget {
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly
               ],
+              style: TextStyle(
+                fontSize: 24,
+              ),
             ),
             TextFormField(
               decoration: InputDecoration(
-                icon: Icon(Icons.monetization_on),
+                icon: Icon(Icons.monetization_on, size: 26,),
                 labelText: 'Valor',
                 hintText: '0.00',
               ),
@@ -31,16 +34,24 @@ class CreateTransference extends StatelessWidget {
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly
               ],
+              style: TextStyle(
+                fontSize: 24,
+              ),
             ),
             Center(
               child: Container(
+                height: 45,
                 margin: EdgeInsets.only(top: 10.0),
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                   ),
+
                   onPressed: () {},
-                  child: const Text("Confirmar"),
+                  child: const Text(
+                      "Confirmar",
+                    style: TextStyle(fontSize: 24),
+                  ),
                 ),
               ),
             )
