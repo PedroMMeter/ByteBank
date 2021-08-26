@@ -1,6 +1,5 @@
 import 'package:bytebank/newTransference.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,44 +10,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: TransferenceList()
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: MainScreen());
   }
 }
 
-class TransferenceList extends StatelessWidget {
-
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Transferências'),
       ),
       body: Column(
         children: [
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.monetization_on),
-              title: Text('100.0'),
-              subtitle: Text('1000'),
-            ),
-          ),Card(
-            child: ListTile(
-              leading: Icon(Icons.monetization_on),
-              title: Text('200.0'),
-              subtitle: Text('1000'),
-            ),
-          ),
+          TransferenceList(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, new MaterialPageRoute(builder: (context) => CreateTransference()));
+        onPressed: () {
+          Navigator.push(
+              context,
+              new MaterialPageRoute(
+                  builder: (context) => CreateTransference()));
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
@@ -58,4 +45,39 @@ class TransferenceList extends StatelessWidget {
   }
 }
 
+class TransferenceList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TransferenceItem(Transference(100.07, 1234)),
+        TransferenceItem(Transference(300.08, 1444)),
+        TransferenceItem(Transference(150.05, 2234)),
+      ],
+    );
+  }
+}
 
+class Transference {
+  final double valor;
+  final int numeroConta;
+
+  Transference(this.valor, this.numeroConta);
+}
+
+class TransferenceItem extends StatelessWidget {
+  final Transference _transference;
+
+  TransferenceItem(this._transference);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Icon(Icons.monetization_on),
+        title: Text(_transference.valor.toString()),
+        subtitle: Text(_transference.numeroConta.toString()),
+      ),
+    );
+  }
+}
