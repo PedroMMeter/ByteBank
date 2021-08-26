@@ -1,46 +1,28 @@
-import 'package:bytebank/newTransference.dart';
+//import 'package:bytebank/newTransference.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(TransferenceList());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class Bytebank extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        home: MainScreen());
+        home: Scaffold(
+      body: TransferenceForm(),
+    ));
   }
 }
 
-class MainScreen extends StatelessWidget {
+class TransferenceForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Transferências'),
+        title: Text('Criando Transferência'),
       ),
-      body: Column(
-        children: [
-          TransferenceList(),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context,
-              new MaterialPageRoute(
-                  builder: (context) => CreateTransference()));
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blueAccent[700],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Text('Teste'),
     );
   }
 }
@@ -48,12 +30,23 @@ class MainScreen extends StatelessWidget {
 class TransferenceList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TransferenceItem(Transference(100.07, 1234)),
-        TransferenceItem(Transference(300.08, 1444)),
-        TransferenceItem(Transference(150.05, 2234)),
-      ],
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Transferências")),
+        body: Column(
+          children: [
+            TransferenceItem(Transference(100.07, 1234)),
+            TransferenceItem(Transference(300.08, 1444)),
+            TransferenceItem(Transference(150.05, 2234)),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+          backgroundColor: Colors.blueAccent[700],
+        ),
+      ),
     );
   }
 }
